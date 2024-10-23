@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="author" content="SrSamovar" lang="en"/>
+    <meta name="keyword" content="Работники частного центра" lang="ru"/>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Robots" content="none"/>
+    <title>Информация о работниках</title>
+    <style type="text/css" media="screen">
+        body {
+             background-image: url("https://i.pinimg.com/736x/05/65/69/056569469163dd7e8c0b5b5c4c91c613.jpg")
+        }
+        table {
+            background-color: rgba(255, 204, 153, 0.9);
+            color: black;
+        }
+        h1 {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Работники</h1>
+
+{% if teachers %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Кружок</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for teacher in teachers %}
+        <tr>
+            <td> {{ teacher.first_name }} {{ teacher.surname }}</td>
+            <td> {{ teacher.work_position }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% else %}
+    <p>No teachers available at the moment.</p>
+{% endif %}
+
+</body>
+</html>
