@@ -8,6 +8,7 @@ from .serializers import TeacherSerializer, ClubSerializer
 from rest_framework.response import Response
 from .permissions import IsAdminOrReadOnly
 import logging
+from logging import basicConfig
 
 logger = logging.getLogger(__name__)
 
@@ -40,7 +41,7 @@ class TeacherViewList(APIView):
             serializer.save()
             logging.info('Teacher saved')
             return Response(serializer.data, status=201)
-        logging.error('Teacher is not saved', status=404)
+        logging.error('Teacher is not saved')
         return Response(serializer.errors, status=400)
 
     def delete(self, request):
@@ -78,7 +79,7 @@ class ClubViewList(APIView):
             serializer.save()
             logging.info('Club saved')
             return Response(serializer.data, status=201)
-        logging.error('Club is not saved', status=404)
+        logging.error('Club is not saved', )
         return Response(serializer.errors, status=400)
 
     def delete(self, request):
