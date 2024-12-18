@@ -3,5 +3,6 @@ from .views import TeacherViewList
 
 
 urlpatterns = [
-    path('teachers/', TeacherViewList.as_view())
+    path('teachers/', TeacherViewList.as_view()),
+    path('clubs/', TeacherViewList.as_view()),
 ]
